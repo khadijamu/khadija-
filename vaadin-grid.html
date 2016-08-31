@@ -1439,6 +1439,28 @@ See the [demo](demo/index.html) for use case examples.
      */
     getItem: function(rowIndex, callback, onlyCached) {
       this._grid.getItem(rowIndex, callback, onlyCached);
+    },
+
+    /**
+     * Gets the row index of an element rendered in the body of the grid.
+     *
+     * @method getRowIndex
+     * @param {Element} element - The element.
+     * @return {Number}
+     */
+    getRowIndex: function(element) {
+      return this._grid.getRowIndex(element);
+    },
+
+    /**
+     * Gets the column index of an element rendered in the grid.
+     *
+     * @method getColumnIndex
+     * @param {Element} element - The element.
+     * @return {Number}
+     */
+    getColumnIndex: function(element) {
+      return this._grid.getColumnIndex(element);
     }
   }); // End Polymer prototype
 </script>

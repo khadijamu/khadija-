@@ -33,6 +33,7 @@ import com.vaadin.client.widget.grid.selection.SelectionModel;
 import com.vaadin.client.widget.grid.sort.SortEvent;
 import com.vaadin.client.widget.grid.sort.SortHandler;
 import com.vaadin.client.widget.grid.sort.SortOrder;
+import com.vaadin.client.widgets.Escalator;
 import com.vaadin.client.widgets.Grid.Column;
 import com.vaadin.elements.common.js.JS;
 import com.vaadin.elements.common.js.JSArray;
@@ -713,5 +714,15 @@ public class GridElement implements SelectionHandler<Object>,
         }
 
         updateHeight();
+    }
+
+    public int getColumnIndex(Element e) {
+        Escalator s = grid.getEscalator();
+        return s.findRowContainer(e) != null ? s.findRowContainer(e).getCell(e).getColumn() : -1;
+    }
+
+    public int getRowIndex(Element e) {
+        Escalator s = grid.getEscalator();
+        return s.findRowContainer(e) == s.getBody() ? s.getBody().getCell(e).getRow() : -1;
     }
 }
